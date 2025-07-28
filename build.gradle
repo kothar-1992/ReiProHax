@@ -18,9 +18,9 @@ buildscript {
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
         }
 
-        maven {
+      /*  maven {
             url 'https://jitpack.io'
-        }
+        }*/
     }
 
     dependencies {
@@ -51,9 +51,9 @@ allprojects {
             url 'https://s01.oss.sonatype.org/content/repositories/snapshots/'
         }
 
-        maven {
+       /* maven {
             url 'https://jitpack.io'
-        }
+        }*/
     }
 }
 
