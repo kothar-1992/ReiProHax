@@ -9,11 +9,12 @@ pluginManagement {
         // id 'com.google.firebase.crashlytics' version '3.0.3'
     }
 }
-allprojects {
+
+dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://jitpack.io' } // Add this line
+        maven { url 'https://jitpack.io' }
     }
 }
 
