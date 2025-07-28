@@ -9,7 +9,10 @@ pluginManagement {
         // id 'com.google.firebase.crashlytics' version '3.0.3'
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> d124f4ff448cf3a436761f4527dcab0a42d90fcc
 dependencyResolutionManagement {
     repositories {
         google()
