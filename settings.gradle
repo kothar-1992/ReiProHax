@@ -9,6 +9,13 @@ pluginManagement {
         // id 'com.google.firebase.crashlytics' version '3.0.3'
     }
 }
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://jitpack.io' } // Add this line
+    }
+}
 
 rootProject.name = "COSMIC-M1"
 include(":app")
