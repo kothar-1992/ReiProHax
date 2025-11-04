@@ -4,26 +4,57 @@ import com.happy.pro.utils.FLog;
 
 public class ApiServer {
 
-    static {
-        try {
-            System.loadLibrary("client");
-        } catch(UnsatisfiedLinkError w) {
-            FLog.error(w.getMessage());
-        }
+    // Native library removed - using placeholder values
+    public static String mainURL() {
+        return "";
     }
-
-    public static native String mainURL();
-    public static native String getOwner();
-    public static native String getTelegram();
-    public static native String getGrup();
-    public static native String activity();
-    public static native String sockindia();
-    public static native String sockallversion();
-    public static native String CheckServer();
-    public static native String FixCrash();
-    public static native String EXP();
-    public static native String Pw();
-    public static native String URLJSON();
-    public static native String ApiKeyBox();
+    
+    public static String getOwner() {
+        return "";
+    }
+    
+    public static String getTelegram() {
+        return "";
+    }
+    
+    public static String getGrup() {
+        return "";
+    }
+    
+    public static String activity() {
+        return "";
+    }
+    
+    public static String sockindia() {
+        return "";
+    }
+    
+    public static String sockallversion() {
+        return "";
+    }
+    
+    public static String CheckServer() {
+        return "";
+    }
+    
+    public static String FixCrash() {
+        return "";
+    }
+    
+    public static String EXP() {
+        return "";
+    }
+    
+    public static String Pw() {
+        return "";
+    }
+    
+    public static String URLJSON() {
+        return "";
+    }
+    
+    public static String ApiKeyBox() {
+        return "";
+    }
 
 }

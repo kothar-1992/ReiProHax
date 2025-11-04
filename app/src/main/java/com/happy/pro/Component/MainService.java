@@ -19,16 +19,15 @@ public class MainService extends Service {
     private static Context context;
     private static String packageName;
 
-    static {
-        try {
-            System.loadLibrary("client");
-        } catch(UnsatisfiedLinkError w) {
-            FLog.error(w.getMessage());
-        }
+    // Native library removed
+    
+    public static String InitBase() {
+        return "";
     }
     
-    public static native String InitBase();
-    public static native void closeSocket();
+    public static void closeSocket() {
+        // Native method removed
+    }
     
     public static MainService get() {
     	return instance;

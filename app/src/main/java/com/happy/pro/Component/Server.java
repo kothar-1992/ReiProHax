@@ -21,11 +21,7 @@ import java.util.Objects;
 
 public class Server extends AsyncTask<String, String, String> {
 
-    
-    static {
-        System.loadLibrary("client");
-    }
-    
+    // Native library removed
     
     public static boolean checkdata = false;
     @SuppressLint("StaticFieldLeak")

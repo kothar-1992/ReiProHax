@@ -44,12 +44,7 @@ import com.happy.pro.Component.DownloadZip;
 import com.happy.pro.Component.Downtwo;
 import com.happy.pro.R;
 import com.happy.pro.adapter.RecyclerViewAdapter;
-import com.happy.pro.floating.FloatRei;
-import com.happy.pro.floating.FloatService;
-import com.happy.pro.floating.Overlay;
-import com.happy.pro.floating.ToggleAim;
-import com.happy.pro.floating.ToggleBullet;
-import com.happy.pro.floating.ToggleSimulation;
+
 import com.happy.pro.libhelper.ApkEnv;
 import com.happy.pro.utils.ActivityCompat;
 import com.happy.pro.utils.FLog;
@@ -91,13 +86,6 @@ public class MainActivity extends ActivityCompat {
     public static int skin = 0;
     static MainActivity instance;
 
-    static {
-        try {
-            System.loadLibrary("client");
-        } catch(UnsatisfiedLinkError w) {
-            FLog.error(w.getMessage());
-        }
-    }
 
     private PowerSpinnerView powerSpinnerView;
     private static final int REQUEST_PERMISSIONS = 1;
@@ -753,12 +741,6 @@ public class MainActivity extends ActivityCompat {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        stopService(new Intent(MainActivity.get(), FloatService.class));
-        stopService(new Intent(MainActivity.get(), Overlay.class));
-        stopService(new Intent(MainActivity.get(), FloatRei.class));
-        stopService(new Intent(MainActivity.get(), ToggleBullet.class));
-        stopService(new Intent(MainActivity.get(), ToggleAim.class));
-        stopService(new Intent(MainActivity.get(), ToggleSimulation.class));
 
     }
 
@@ -823,49 +805,20 @@ public class MainActivity extends ActivityCompat {
     }
 
     private boolean isServiceRunning() {
-        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
-        if (manager != null) {
-            for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
-                if (FloatService.class.getName().equals(service.service.getClassName())) {
-                    return true;
-                }
-            }
-        }
+        // Floating services removed
         return false;
     }
 
     private void startPatcher() {
-        if (!Settings.canDrawOverlays(MainActivity.get())) {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-            startActivityForResult(intent, 123);
-        } else {
-            startFloater();
-        }
+        // Floating services removed
     }
 
     private void startFloater() {
-        if (!isServiceRunning()) {
-            if (kernel){
-                loadAssets("kernels64");
-            }else{
-                loadAssets("socu64");
-            }
-            String CMD =    "rm -rf  /data/data/" + game + "/files;\n" +
-                    "touch  /data/data/" + game + "/files;\n";
-            Shell.su(CMD).submit();
-            startService(new Intent(MainActivity.get(), FloatService.class));
-        } else {
-            toastImage(R.drawable.ic_error, getString(R.string.service_is_already_running));
-        }
+        // Floating services removed
     }
 
     private void stopPatcher() {
-        stopService(new Intent(MainActivity.get(), FloatService.class));
-        stopService(new Intent(MainActivity.get(), Overlay.class));
-        stopService(new Intent(MainActivity.get(), FloatRei.class));
-        stopService(new Intent(MainActivity.get(), ToggleAim.class));
-        stopService(new Intent(MainActivity.get(), ToggleBullet.class));
-        stopService(new Intent(MainActivity.get(), ToggleSimulation.class));
+        // Floating services removed
     }
 
     public void loadAssets(String sockver) {

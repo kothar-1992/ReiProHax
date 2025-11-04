@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"
         tools:ignore="RequestInstallPackagesPolicy" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- Display notifications as full screen activities on a locked device -->
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"
         tools:ignore="FullScreenIntentPolicy" />
@@ -101,15 +100,7 @@
             android:exported="true"/>
 
 
-        
-        <service android:name=".floating.Overlay" />
 
-        <service android:name=".floating.FloatService" />
-
-        <service android:name=".floating.FloatRei" />
-        <service android:name=".floating.ToggleBullet" />
-        <service android:name=".floating.ToggleAim" />
-        <service android:name=".floating.ToggleSimulation" />
 
 
         <provider
