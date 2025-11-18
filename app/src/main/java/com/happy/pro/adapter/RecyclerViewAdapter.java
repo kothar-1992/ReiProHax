@@ -22,9 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.blankj.molihuan.utilcode.util.ToastUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.happy.pro.activity.MainActivity;
-import com.happy.pro.floating.ToggleAim;
-import com.happy.pro.floating.ToggleBullet;
-import com.happy.pro.floating.ToggleSimulation;
+
 import com.happy.pro.libhelper.FileHelper;
 import com.happy.pro.utils.ActivityCompat;
 import com.happy.pro.utils.FLog;
@@ -36,9 +34,7 @@ import com.happy.pro.utils.UiKit;
 import java.util.ArrayList;
 
 import android.content.Intent;
-import com.happy.pro.floating.FloatService;
-import com.happy.pro.floating.Overlay;
-import com.happy.pro.floating.FloatRei;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import com.happy.pro.R;
@@ -174,11 +170,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 if (ApkEnv.getInstance().isRunning(packageValues.get(position))) {
                     ApkEnv.getInstance().stopRunningApp(packageValues.get(position));
                     holder.status.setText("Open Game");
-                    activity.stopService(new Intent(MainActivity.get(), FloatService.class));
-                    activity.stopService(new Intent(MainActivity.get(), Overlay.class));
-                    activity.stopService(new Intent(MainActivity.get(), ToggleBullet.class));
-                    activity.stopService(new Intent(MainActivity.get(), ToggleAim.class));
-                    activity.stopService(new Intent(MainActivity.get(), ToggleSimulation.class));
+                    // Floating services removed
                 } else {
                     if (ApkEnv.getInstance().tryAddLoader(packageValues.get(position))) {
                         activity.launchSplash(packageValues.get(position));

@@ -15,9 +15,10 @@ import java.security.NoSuchAlgorithmException;
 
 public class Utils {
 
-    public static void navbarwindows(Activity activity , int color,Context context){System.loadLibrary("client");
+    public static void navbarwindows(Activity activity , int color,Context context){
         activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);sign(GetVerify(context));
+        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        // sign(GetVerify(context)); // Native method removed
         activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
         activity.getWindow().setStatusBarColor(ContextCompat.getColor(activity,color));
@@ -51,8 +52,7 @@ public class Utils {
         }
     }
 
-
-    private static native void sign(String signatureHash);
+    // private static native void sign(String signatureHash); // Native method removed
 }
 
 

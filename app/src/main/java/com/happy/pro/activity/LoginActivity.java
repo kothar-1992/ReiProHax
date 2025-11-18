@@ -58,13 +58,7 @@ import java.util.Objects;
 
 public class LoginActivity extends ActivityCompat {
 
-    static {
-        try {
-            System.loadLibrary("client");
-        } catch(UnsatisfiedLinkError w) {
-            FLog.error(w.getMessage());
-        }
-    }
+    // Native library removed
 
     private static final String QUESTION = "Q: %s";
     private static final String ANSWER = "A: %s";
@@ -239,16 +233,7 @@ public class LoginActivity extends ActivityCompat {
 
 
     public void OverlayPermision() {
-        if (!Settings.canDrawOverlays(this)) {
-            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
-            builder.setMessage(R.string.please_allow_permision_floating);
-            builder.setPositiveButton(R.string.yes, (p1, p2) -> {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, REQUEST_OVERLAY_PERMISSION);
-            });
-            builder.setCancelable(false);
-            builder.show();
-        }
+        // Overlay permission no longer needed - floating services removed
     }
 
 
@@ -361,7 +346,10 @@ public class LoginActivity extends ActivityCompat {
         setLokasi(bahasa);
     }
 
-    private static native String native_Check(Context context, String userKey, String modeSelect);
+    private static String native_Check(Context context, String userKey, String modeSelect) {
+        // Native method removed - returning empty string
+        return "";
+    }
 
    // private static native String Check(Context mContext, String userKey, String level);
 }

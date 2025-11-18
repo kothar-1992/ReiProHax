@@ -207,17 +207,8 @@ public class ActivityCompat extends AppCompatActivity {
     }
     
     public void OverlayPermision() {
-        if (!Settings.canDrawOverlays(this)) {
-            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this);
-            builder.setMessage("Please allow permision floating");
-            builder.setPositiveButton("Yes", (p1, p2) -> {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, REQUEST_OVERLAY_PERMISSION);
-            });
-            builder.setCancelable(false);
-            builder.show();
-        } else {
-            InstllUnknownApp();
+        // Overlay permission no longer needed - floating services removed
+        InstllUnknownApp();
         }
     }
     
